@@ -1,6 +1,6 @@
 <?php
 
-// enabling support for woocommerce && customizing it
+// WooCommerce
 function enable_woo_commerce_support() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'wc-product-gallery-zoom' );
@@ -11,10 +11,35 @@ add_action( 'after_setup_theme', 'enable_woo_commerce_support' );
 
 
 
-//adding theme setup function
+// Theme Setup
+if ( ! function_exists( 'basictheme_set_up' ) ) :
 
-if ( !function_exists ( 'basictheme_set_up' ) ) {
-    function basictheme_set_up () {
+    function basictheme_set_up() {
+        load_theme_textdomain( 'basictheme', get_template_directory() . '/languages' );
+        add_theme_support( 'automatic-feed-links' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'title-tag' );
+        
+        add_theme_support( 'post-formats', array ( 'aside', 'gallery', 'quote', 'image', 'video' ) );
+    
+        /* 
+        Adding support for html5 markup
+        */
+        add_theme_support(
+            'html5',
+            array(
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'style',
+                'script',
+                'navigation-widgets',
+            )
+        );
+    
+        // registering custom header image & setting up default header
+        // images
         $custom_header_config = array(
             'default-image'      => get_template_directory_uri() . '/assets/img/Macbook.png',
             'default-text-color' => '000',
@@ -22,12 +47,26 @@ if ( !function_exists ( 'basictheme_set_up' ) ) {
             'height'             => 500,
             'uploads'            => true,
             'flex-width'         => true,
-            'flex-height'         => true,
+            'flex-height'        => true,
         );
         add_theme_support( 'custom-header', $custom_header_config );
+    
+        // registering custom logo
+        $custom_logo_config = array(
+            'height'      => 60,
+            'width'       => 60,
+            'flex-height' => false, // do it to apply fixed image size /
+            'flex-width'  => false, // to get images of your set size.
+            'header-text' => array( 'site-title', 'site-description' ),
+            'unlink-homepage-logo' => true, 
+        );
+        add_theme_support( 'custom-logo', $custom_logo_config );
+    
     }
-}
+endif; 
 add_action( 'after_setup_theme', 'basictheme_set_up' );
+
+
 
 
 // registering navigation menus
@@ -41,10 +80,10 @@ add_action( 'init', 'basictheme_register_menus' );
 
 
 // Registering sidebars / widget areas
-function vstheme_register_sidebars() {    
+function basictheme_register_sidebars() {    
     register_sidebar( array(
         'id'            => 'sidebar-left',
-        'name'          => __( 'Left Sidebar', 'vstheme' ),
+        'name'          => __( 'Left Sidebar', 'basictheme' ),
         'description'   => __( 'left sidebar area of the page' ),
         'before_widget' => '<aside id="%1$s" class="widget mb-4 %2$s">',
         'after_widget'  => '</aside>',
@@ -53,7 +92,7 @@ function vstheme_register_sidebars() {
     ) );
     register_sidebar( array(
         'id'            => 'sidebar-right',
-        'name'          => __( 'Right Sidebar', 'vstheme' ),
+        'name'          => __( 'Right Sidebar', 'basictheme' ),
         'description'   => __( 'right sidebar area of the page' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -61,17 +100,17 @@ function vstheme_register_sidebars() {
         'after_title'   => '</h3>',
     ) );
     register_sidebar( array(
-        'id'            => 'header-widget',
-        'name'          => __( 'Header Widget Area', 'vstheme' ),
-        'description'   => __( 'this is header section widget area' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</aside>',
+        'id'            => 'top-nav-widget',
+        'name'          => __( 'Header Nav Menu Widget', 'basictheme' ),
+        'description'   => __( 'Top nav menu widget section' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s nav-item">',
+        'after_widget'  => '</li>',
         'before_title'  => '<h3 class="header-widget-title">',
         'after_title'   => '</h3>',
     ) );
     register_sidebar( array(
         'id'            => 'footer-1',
-        'name'          => __( 'Footer One', 'vstheme' ),
+        'name'          => __( 'Footer One', 'basictheme' ),
         'description'   => __( 'this is footer section widget area' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -80,7 +119,7 @@ function vstheme_register_sidebars() {
     ) );
     register_sidebar( array(
         'id'            => 'footer-2',
-        'name'          => __( 'Footer Two', 'vstheme' ),
+        'name'          => __( 'Footer Two', 'basictheme' ),
         'description'   => __( 'this is footer section widget area' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -89,7 +128,7 @@ function vstheme_register_sidebars() {
     ) );
     register_sidebar( array(
         'id'            => 'footer-3',
-        'name'          => __( 'Footer Three', 'vstheme' ),
+        'name'          => __( 'Footer Three', 'basictheme' ),
         'description'   => __( 'this is footer section widget area' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -98,7 +137,7 @@ function vstheme_register_sidebars() {
     ) );
     register_sidebar( array(
         'id'            => 'footer-4',
-        'name'          => __( 'Footer Four', 'vstheme' ),
+        'name'          => __( 'Footer Four', 'basictheme' ),
         'description'   => __( 'this is footer section widget area' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -113,7 +152,7 @@ function vstheme_register_sidebars() {
         'after_widget'      => '</li>',
     ) );
 }
-add_action( 'widgets_init', 'vstheme_register_sidebars' );
+add_action( 'widgets_init', 'basictheme_register_sidebars' );
 
 
 // adding bootstrap nav walker
@@ -261,3 +300,86 @@ add_action( 'custom_wc_breadcrumb_hook', 'woocommerce_breadcrumb' );
 //result count
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 add_action( 'custom_wc_result_count_hook', 'woocommerce_result_count');
+
+
+
+// codes added afterwards should be shipped to a plugin instead.
+//
+
+// CPT UI adding to WP categories and tags
+function my_cptui_add_post_types_to_archives( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;    
+	}
+
+	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+		$cptui_post_types = cptui_get_post_type_slugs();
+
+		$query->set(
+			'post_type',
+			array_merge(
+				array( 'post' ),
+				$cptui_post_types
+			)
+		);
+	}
+}
+add_filter( 'pre_get_posts', 'my_cptui_add_post_types_to_archives' );
+
+// changing posts per page
+function my_cptui_change_posts_per_page( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) {
+       return;
+    }
+
+    if ( is_post_type_archive( 'product' ) ) {
+       $query->set( 'posts_per_page', 6 );
+    }
+}
+add_filter( 'pre_get_posts', 'my_cptui_change_posts_per_page' );
+
+// ensuring search functionality for custom post types
+function my_cptui_add_post_type_to_search( $query ) {
+	if ( is_admin() ) {
+		return;
+	}
+
+	if ( $query->is_search() ) {
+		$cptui_post_types = cptui_get_post_type_slugs();
+		$query->set(
+			'post_type',
+			array_merge(
+				array( 'post' ), 
+				$cptui_post_types
+			)
+		);
+	}
+}
+add_filter( 'pre_get_posts', 'my_cptui_add_post_type_to_search' );
+
+// adding cptui post types to the RSS feeds
+function my_cptui_add_post_types_to_rss( $query ) {
+	if ( ! $query->is_feed() ) {
+		return;    
+	}
+
+	$cptui_post_types = cptui_get_post_type_slugs();
+
+	$query->set(
+		'post_type',
+		array_merge(
+			array( 'post' ),
+			$cptui_post_types
+		)
+	);
+}
+add_filter( 'pre_get_posts', 'my_cptui_add_post_types_to_rss' );
+
+
+//custom function to get the description of custom post type
+function my_cptui_post_type_description( $post_type_slug = '' ) {
+	$mytype = get_post_type_object( $post_type_slug );
+	if ( ! empty( $mytype ) ) {
+		echo $the_post_type->description;
+	}
+}

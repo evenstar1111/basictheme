@@ -11,7 +11,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 <header id="masthead" class="site-header">
-<nav id="site-navigation" class="navbar navbar-expand-md navbar-dark bg-dark rounded-0">
+<nav id="site-navigation" class="navbar navbar-expand-md navbar-dark bg-basictheme rounded-0">
 
   <?php 
     if ( function_exists( 'the_custom_logo' ) ) :     
@@ -39,7 +39,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       <?php endif ?>
-      <?php get_template_part( 'template-parts/navs/nav', 'primary' ) ?>
+      <?php get_template_part( 'template-parts/navs/nav', 'primary' ) ?>      
 </nav>
 
 <?php if ( get_header_image() ) : ?>
