@@ -11,35 +11,25 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 <header id="masthead" class="site-header">
-<nav id="site-navigation" class="navbar navbar-expand-md navbar-dark bg-basictheme rounded-0">
+<nav id="site-navigation" class="navbar navbar-expand navbar-dark bg-basictheme rounded-0">
+<!-- navbar-expand-md-->  
+  <?php get_template_part( 'template-parts/header/navbar-brand' ) ?>
+  
+  <?php get_template_part( 'template-parts/header/navbar-toggler' ) ?>
 
-  <?php 
-    if ( function_exists( 'the_custom_logo' ) ) :     
-      $custom_logo_id = get_theme_mod( 'custom_logo' );
-      $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );        
-      if ( has_custom_logo() ) : 
-  ?>
+  <?php get_template_part( 'template-parts/navs/nav', 'primary' ) ?>
 
-        <a class="navbar-brand mr-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-          <img class="rounded" src="<?php echo esc_url( $logo[0] ) ?>" width="<?php echo absint( $logo[1] ) ?>" height="<?php echo absint( $logo[2] ) ?>" alt="<?php echo get_bloginfo( 'name', 'display' ) ?>">
-          <h1 class="m-0 p-0 text-white"><?php echo  get_template_part( 'template-parts/site_title' ) ?></h1>
-        </a>
-
-      <?php else: ?>
-        <a class="navbar-brand mr-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>">          
-          <h1 class="m-0 p-0 text-white"><?php echo get_template_part( 'template-parts/site_title' ) ?></h1>
-        </a>
-
-  <?php
-      endif;
-    endif;
-  ?>
-      <?php if ( has_nav_menu( 'primary' ) ): ?>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-navigation-collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      <?php endif ?>
-      <?php get_template_part( 'template-parts/navs/nav', 'primary' ) ?>      
+  <div class="navbar-right-elements mx-3 d-flex align-items-center">
+    <div class="menu-wrapper">
+      <?php get_template_part( 'template-parts/navs/nav', 'woocom' ) ?>
+    </div>
+    <div class="header_nav_widget-wrapper">
+      <?php get_template_part( 'template-parts/sidebars/sidebar-top_nav' ) ?>
+    </div>
+    <div class="wooc_cart-wrapper">
+      <?php get_template_part( 'template-parts/sidebars/sidebar-top_nav_cart' ) ?>
+    </div>
+  </div>
 </nav>
 
 <?php if ( get_header_image() ) : ?>
@@ -53,4 +43,21 @@
 <?php endif; ?>
 </header>
 
+<div id="primary_mobile_nav-sidebar" class="primary_mobile_nav-sidebar d-block d-lg-none">
+  <?php get_template_part( 'template-parts/navs/nav', 'primary_mobile' ) ?>
+</div>
 
+<div class="modal" tabindex="-1" id="wooc_product_search_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pb-5">
+        <?php echo do_shortcode('[yith_woocommerce_ajax_search]');?>
+      </div>
+    </div>
+  </div>
+</div>

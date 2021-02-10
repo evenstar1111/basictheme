@@ -1,0 +1,27 @@
+.dd-select {
+   border: none !important;
+}
+
+.woocommerce-currency-switcher-form .dd-selected {
+   background: #65cd00;
+   color: white !important;
+   padding-right: 30px !important;
+   text-align: right;
+}
+
+.dd-selected label {
+   margin-bottom: 0;
+}
+
+.dd-selected .dd-desc {
+   color: #e9ecef !important;
+}
+
+.dd-pointer-down {
+   border-top: solid 5px #fff !important;
+}
+
+.dd-pointer-up {
+   border: solid 5px transparent !important;
+   border-bottom: solid 5px #fff !important;
+}
