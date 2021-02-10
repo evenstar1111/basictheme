@@ -43,7 +43,10 @@
 <?php endif; ?>
 </header>
 
-<div id="primary_mobile_nav-sidebar" class="primary_mobile_nav-sidebar d-block d-lg-none">
+<div id="primary_mobile_nav-sidebar" class="primary_mobile_nav-sidebar d-block d-lg-none <?php echo is_admin_bar_showing() ? "sidebar_top_margin" : null; ?>">
+  <div class="d-flex justify-content-end mobile_sidebar_close-wrapper">
+    <span id="mobile_sidebar_close"><i class="fa fa-close"></i></span>
+  </div>
   <?php get_template_part( 'template-parts/navs/nav', 'primary_mobile' ) ?>
 </div>
 

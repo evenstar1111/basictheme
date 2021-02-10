@@ -3,11 +3,26 @@
 <!-- Footer -->
 <footer>
    <div class="container">
-      <?php if ( is_active_sidebar ( 'footer-area' )  ): ?>
-         <div class="row">            
-            <ul class="col-sm-12 footer-social">
-               <?php get_template_part( 'template-parts/sidebars/sidebar', 'footer_social' ) ?>
-            </ul>
+      <div class="row justify-content-center footer-row-primary">
+
+         <?php if ( is_active_sidebar ( 'footer-1' )  ): ?>
+            <div class="col-auto col-sm order-1">
+               <?php get_template_part( 'template-parts/sidebars/sidebar', 'footer_1' ) ?>
+            </div>
+         <?php endif ?>
+
+         <?php if ( is_active_sidebar ( 'footer-area' )  ): ?>         
+               <ul class="col-sm footer-social order-0 order-sm-2 mb-5 mb-sm-0">
+                  <?php get_template_part( 'template-parts/sidebars/sidebar', 'footer_social' ) ?>
+               </ul>
+         <?php endif ?>
+
+      </div>
+      <?php if ( is_active_sidebar ( 'footer-2' )  ): ?>
+         <div class="row footer-row-primary">            
+            <div class="col">
+               <?php get_template_part( 'template-parts/sidebars/sidebar', 'footer_2' ) ?>
+            </div>
          </div>
       <?php endif ?>
       <div class="row">

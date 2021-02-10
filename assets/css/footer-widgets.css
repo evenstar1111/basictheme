@@ -1,0 +1,44 @@
+#nav_menu-2 .footer-widget-title {
+   color: #a7a7a7;
+   font-size: 1.3rem;
+   text-align: left;
+}
+
+#nav_menu-2 .menu {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   text-align: left;
+}
+
+#nav_menu-2 .menu li {
+   width: 100%;
+}
+
+#nav_menu-2 .menu a {
+   display: inline-block;
+   width: fit-content;
+   padding: 4px 0;
+   color: #333333;
+   font-weight: 500;
+}
+
+
+/* tnp widget */
+.tnp-widget-minimal input.tnp-email {
+   width: 80% !important;
+   height: 50px;
+   outline: none;
+   background-color: #fff !important;
+}
+
+.tnp-widget-minimal input.tnp-submit {
+   width: 20% !important;
+   height: 50px !important;
+   outline: none !important;
+}
+
+#newsletterwidgetminimal-2 .footer-widget-title{ 
+   margin-bottom: 3rem;
+    color: #5a5a5a;
+}

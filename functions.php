@@ -69,9 +69,10 @@ add_action( 'custom_wc_breadcrumb_hook', 'woocommerce_breadcrumb' );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 add_action( 'custom_wc_result_count_hook', 'woocommerce_result_count');
 
+// addiding quantity field in woocommerce single product template
+require get_template_directory() . '/inc/woocommerce-quantity-field.php';
 
 
-// codes added afterwards should be shipped to a plugin instead.
-//
 
+// functions for custom post type
 require get_template_directory() . '/inc/cptui-functions.php';

@@ -5,7 +5,8 @@ function basictheme_register_menus() {
        'primary'           => __( 'Primary Menu', 'basictheme' ),
        'wc_endpoints_menu' => __( 'Top Navbar Menu for WooCom Endpoints', 'basictheme'),
        'secondary'         => __( 'Secondary Menu', 'basictheme'),
-       'primary_mobile'    => __('Primary Menu - Mobile Devices', 'basictheme'),
+       'primary_mobile'    => __( 'Primary Menu - Mobile Devices', 'basictheme' ),
+       'footer_nav_menu_1' => __( 'Footer navigation menu one', 'basictheme' ),
    ) );
 }
 

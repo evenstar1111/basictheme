@@ -76,9 +76,9 @@ function basictheme_register_sidebars() {
    ) );
    register_sidebar( array(
        'id'                => 'footer-area',
-       'name'              => __( 'Footer Widget One', 'basictheme' ),
+       'name'              => __( 'Footer Widget Social Links', 'basictheme' ),
        'description'       => __( 'footer widget area' ),
-       'before_widget'     => '<li id="%1$s" class="widget mb-4 %2$s">',
+       'before_widget'     => '<li id="%1$s" class="widget %2$s">',
        'after_widget'      => '</li>',
    ) );
 }
