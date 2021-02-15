@@ -1,17 +1,20 @@
-<?php 
-    if ( function_exists( 'the_custom_logo' ) ) :     
+<?php
+    if ( function_exists( 'the_custom_logo' ) ) :
       $custom_logo_id = get_theme_mod( 'custom_logo' );
-      $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );        
-      if ( has_custom_logo() ) : 
+      $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+      if ( has_custom_logo() ) :
   ?>
 
         <a class="navbar-brand mr-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>">
           <img class="rounded" src="<?php echo esc_url( $logo[0] ) ?>" width="<?php echo absint( $logo[1] ) ?>" height="<?php echo absint( $logo[2] ) ?>" alt="<?php echo get_bloginfo( 'name', 'display' ) ?>">
-          <h1 class="m-0 p-0 text-white"><?php echo  get_template_part( 'template-parts/site_title' ) ?></h1>
+
+          <?php if( display_header_text() ): ?>
+            <h1 class="m-0 p-0 text-white"><?php echo  get_template_part( 'template-parts/site_title' ) ?></h1>
+          <?php endif ?>
         </a>
 
-      <?php else: ?>
-        <a class="navbar-brand mr-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>">          
+      <?php elseif( display_header_text() ): ?>
+        <a class="navbar-brand mr-auto" href="<?php echo esc_url( home_url( '/' ) ); ?>">
           <h1 class="m-0 p-0 text-white"><?php echo get_template_part( 'template-parts/site_title' ) ?></h1>
         </a>
 

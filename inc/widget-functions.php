@@ -81,6 +81,13 @@ function basictheme_register_sidebars() {
        'before_widget'     => '<li id="%1$s" class="widget %2$s">',
        'after_widget'      => '</li>',
    ) );
+   register_sidebar( array(
+       'id'                => 'wooc-search-widget',
+       'name'              => __( 'Woocommerce Search Form Container', 'basictheme' ),
+       'description'       => __( 'Container for woocommerce search form' ),
+       'before_widget'     => '<section id="%1$s" class="widget %2$s">',
+       'after_widget'      => '</section>',
+   ) );
 }
 
 

@@ -1,0 +1,24 @@
+.woocommerce nav.woocommerce-pagination ul {
+   border: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+   border-right: none;
+   width: 33px;
+   height: 33px;
+   border: 1px solid #67cd00af;
+   margin-right: 3px;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a {
+   color: #444;
+}
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce nav.woocommerce-pagination ul li a:focus {
+   background-color: #65cd002c;
+   color: #444;
+}
+.woocommerce nav.woocommerce-pagination ul li span.current {
+   background-color: #67cd00af;
+   color: #444;
+}

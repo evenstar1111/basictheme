@@ -1,15 +1,19 @@
-$(document).ready(function () {
-   const mobileNavSidebar = $('#primary_mobile_nav-sidebar');
-   const mobileNavToggler = $('#mobile_nav-toggler');
-   const mobileNavClose = $('#mobile_sidebar_close');
+document.onreadystatechange = () => {
+   const mobileNavSidebar = document.querySelector(
+      '#primary_mobile_nav-sidebar'
+   );
+   const mobileNavToggler = document.querySelector('#mobile_nav-toggler');
+   const mobileNavClose = document.querySelector('#mobile_sidebar_close');
 
-   mobileNavToggler.on('click', function (e) {
+   mobileNavToggler.onclick = e => {
       e.stopPropagation();
-      mobileNavSidebar.toggleClass('open');
-   });
+      mobileNavSidebar.classList.contains('open')
+         ? mobileNavSidebar.classList.remove('open')
+         : mobileNavSidebar.classList.add('open');
+   };
 
-   mobileNavClose.on('click', function () {
-      mobileNavSidebar.hasClass('open') &&
-         mobileNavSidebar.removeClass('open');
-   });
-});
+   mobileNavClose.onclick = e => {
+      mobileNavSidebar.classList.contains('open') &&
+         mobileNavSidebar.classList.remove('open');
+   };
+};

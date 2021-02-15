@@ -17,6 +17,10 @@ Tags: light, colorful, minimal
 @import './assets/css/wooc-search-form.css';
 @import './assets/css/front-page.css';
 @import './assets/css/footer-widgets.css';
+@import './assets/css/wooc-overrides.css';
+@import './assets/css/wooc-my-acount.css';
+@import './assets/css/wooc-checkout.css';
+@import './assets/css/wooc-pagination.css';
 
 body {
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -42,36 +46,6 @@ body {
    margin-bottom: 0 !important   ;
 }
 
-.wpcf7-form p {
-   text-align: center;
-}
-
-.wpcf7-form label {
-   font-size: 18px;
-   font-weight: 400;
-   color: #393939;
-   margin-bottom: 10px;
-   text-align: left;
-}
-.wpcf7-form input,
-.wpcf7-form textarea {
-   width: 100%;
-   padding: 8px 20px;
-   border: 1.4px solid #777;
-   border-radius: 6px;
-}
-.wpcf7-form textarea {
-   resize: none;
-}
-.wpcf7-form input[type='submit'] {
-   max-width: 300px;
-   border: none;
-   background-color: #65cd00;
-   color: #fff;
-   font-size: 16px;
-   font-weight: 500px;
-   letter-spacing: 2px;
-}
 footer {
    margin-bottom: 0;
    padding: 50px 0 35px 0;
@@ -149,6 +123,38 @@ ul.phoen_list li.product {
 }
 
 .navbar-dark .navbar-toggler {
-   border-color: rgba(255, 255, 255, .6) !important;
+   border-color: rgba(255, 255, 255, 0.6) !important;
    outline: none !important;
+}
+
+/* woocommerce checkout page */
+.woocommerce-checkout .col-1,
+.woocommerce-checkout .col-2 {
+   width: 100%;
+   flex: unset !important;
+   max-width: 100%;
+}
+.woocommerce-input-wrapper {
+   display: block;
+   width: 100%;
+}
+
+.woocommerce-info {
+   border-top-color: #274f00;
+}
+.woocommerce-info::before {
+   color: #274f00;
+}
+
+.wpcf7-form .form-control {
+   border-radius: 0;
+}
+.wpcf7-form .form-control:focus {
+   box-shadow: none;
+}
+.wpcf7-form .btn {
+   border-radius: 0;
+}
+.wpcf7-form .btn:focus {
+   box-shadow: none;
 }

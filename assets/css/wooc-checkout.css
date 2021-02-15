@@ -1,0 +1,47 @@
+#customer_details {
+   margin-bottom: 2rem;
+}
+
+#ship-to-different-address {
+   margin-bottom: 2rem;
+   margin-top: 2rem;
+   font-size: 1.3rem;
+   color: #444;
+}
+
+#ship-to-different-address input {
+   margin-right: 1rem;
+}
+
+#order_review_heading {
+   margin-bottom: 1rem;
+}
+
+.woocommerce-checkout-review-order-table {
+   color: #444;
+}
+
+.woocommerce a.remove {
+   height: 20px;
+   width: 20px;
+   color: #bd0909 !important;
+   border-radius: 50%;
+   font-size: 1.1rem;
+}
+
+.woocommerce a.remove:hover {
+   color: #fff !important;
+   background: #bd0909 !important;
+}
+
+.woocommerce .quantity .qty {
+   border: 1px solid #d3ced2;
+}
+
+.woocommerce-message {
+   border-top-color: #274f00;
+}
+
+.woocommerce-message::before {
+   color: #274f00;
+}

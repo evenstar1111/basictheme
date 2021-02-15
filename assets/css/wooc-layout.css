@@ -1,0 +1,56 @@
+/* archive pages */
+.woocommerce .woocommerce-ordering {
+   margin: 0 !important;
+}
+.gridlist-toggle {
+   padding-bottom: 0 !important;
+}
+
+.woocommerce ul.products.columns-2 li.product,
+.woocommerce-page ul.products.columns-2 li.product {
+   width: auto;
+   flex: 0 0 66.66%;
+}
+.woocommerce ul.products li.first,
+.woocommerce-page ul.products li.first {
+   clear: none;
+}
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+   float: none;
+   margin: 0;
+   margin-bottom: 2rem;
+}
+
+.woocommerce .products ul,
+.woocommerce ul.products {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+}
+
+.woocommerce .products ul.list,
+.woocommerce ul.products.list {
+   display: block;
+}
+
+.woocommerce .products ul::after,
+.woocommerce .products ul::before,
+.woocommerce ul.products::after,
+.woocommerce ul.products::before {
+   content: '';
+   display: none;
+}
+
+@media (min-width: 730px) {
+   .woocommerce .products ul,
+   .woocommerce ul.products {
+      display: flex;
+      gap: 20px;
+      justify-content: space-evenly;
+   }
+   .woocommerce ul.products.columns-2 li.product,
+   .woocommerce-page ul.products.columns-2 li.product {
+      flex: 0 0 33.33%;
+   }
+}
